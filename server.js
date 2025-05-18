@@ -6,9 +6,11 @@ import { nanoid } from "nanoid";
 import jwt from "jsonwebtoken";
 import cors from "cors";
 import admin from "firebase-admin";
-import serviceAccountKey from "./medium-firebase-adminsdk.json" assert { type: "json" };
+// import serviceAccountKey from "./medium-firebase-adminsdk.json" assert { type: "json" };
 import { getAuth } from "firebase-admin/auth";
 // import aws from "aws-sdk";
+import { readFile } from 'fs/promises';
+const serviceAccountKey = JSON.parse(await readFile(new URL('./medium-firebase-adminsdk.json', import.meta.url)));
 
 //schema below
 import User from "./Schema/User.js";
